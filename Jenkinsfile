@@ -34,7 +34,7 @@ pipeline {
                 }
       stage('Infra Sanity Check') {
             steps {
-                sh '/root/.jenkins/workspace/Deploy_Job/infra_sanity_test.py'
+                sh '/root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py'
             }
         }       
      }
