@@ -34,6 +34,7 @@ pipeline {
                 }
       stage('Infra Sanity Check') {
             steps {
+                sh 'chmod +x /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py'
                 sh '/root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py'
             }
         }       
