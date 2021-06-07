@@ -17,8 +17,8 @@ url = 'http://3.87.185.160'
 request_response = requests.head(url)
 status_code = request_response.status_code
 if status_code == 200:
-    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']
+    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']:
         send_email(email, 'Website is Up')
 else:
-    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']
+    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']:
         send_email(email, 'Web App is Down')
