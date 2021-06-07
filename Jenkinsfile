@@ -33,10 +33,14 @@ pipeline {
                     }
                 }
       stage('Infra Sanity Check') {
-            steps {
-//                 sh 'chmod +x /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py'
-                sh 'python3 /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py'
-            }
-        }       
+           script {
+                     if ( params.environment=='prod') {
+                        sh 'python3 /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py http://18.212.67.28:9000/'
+                    }
+                     else if ( params.environment=='stage') {                   
+                         sh 'python3 /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py http://18.212.67.28:8200/'
+                                }
+                            }
+            }       
      }
 }
