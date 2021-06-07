@@ -2,6 +2,9 @@
 
 from smtplib import SMTP
 import requests
+from sys import argv
+
+url = argv[1]
 
 def send_email(email, msg):
     connection = SMTP("smtp.gmail.com", 587)
@@ -13,12 +16,15 @@ def send_email(email, msg):
     print("Notification sent successfully")   
     
 
-url = 'http://3.87.185.160'
+# url = 'http://18.212.67.28:8200/'
+
 request_response = requests.head(url)
 status_code = request_response.status_code
+emails = ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']
+
 if status_code == 200:
-    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']:
+    for email in emails:
         send_email(email, 'Website is Up')
 else:
-    for email in ['yogesh.p@cloverbaytechnologies.com', 'sachin.saini@cloverbaytechnologies.com']:
+    for email in emails:
         send_email(email, 'Web App is Down')
