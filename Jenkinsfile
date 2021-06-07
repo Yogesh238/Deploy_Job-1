@@ -33,6 +33,7 @@ pipeline {
                     }
                 }
       stage('Infra Sanity Check') {
+          steps{
            script {
                      if ( params.environment=='prod') {
                         sh 'python3 /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py http://18.212.67.28:9000/'
@@ -41,6 +42,7 @@ pipeline {
                          sh 'python3 /root/.jenkins/workspace/kupos_deployjob/infra_sanity_test.py http://18.212.67.28:8200/'
                                 }
                             }
-            }       
+            }
+          }       
      }
 }
